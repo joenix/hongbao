@@ -45,7 +45,16 @@
 #### 返回结果：
 - 错误状态：error = [boolean]
 - 错误信息：msg = [string]
-- 返回数据：data = [ { envid(红包id): [int], data(日期): [data], coin(U币): [int] } ]
+- 返回数据：
+``` javascript
+data = [
+    {
+        envid(红包id): [int],
+        data(日期): [data],
+        coin(U币): [int]
+    }
+]
+```
 
 ## [Detail]
 
@@ -61,12 +70,12 @@
 - 返回数据：
 ``` javascript
 data(领取信息) = [
-{
-    userid(用户id): [int],
-    type(类型): 0: 系统退回, 1: 被领取,
-    data(日期): [data],
-    coin(U币): [int]
-}
+    {
+        userid(用户id): [int],
+        type(类型): 0: 系统退回, 1: 被领取,
+        data(日期): [data],
+        coin(U币): [int]
+    }
 ]
 ```
 
@@ -84,4 +93,11 @@ data(领取信息) = [
 #### 返回结果：
 - 错误状态：error = [boolean]
 - 错误信息：msg = [string]
-- 返回数据：data = { userid: [int], avatar: [url], nick: [string] }
+- 返回数据：
+``` javascript
+data = {
+    userid: [int],
+    avatar: [url],
+    nick: [string]
+}
+```
