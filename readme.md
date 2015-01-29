@@ -3,6 +3,7 @@
 - [envelopes.create](#create)
 - [envelopes.excrete](#excrete)
 - [envelopes.history](#history)
+- [envelopes.detail](#detail)
 
 ## [Create]
 
