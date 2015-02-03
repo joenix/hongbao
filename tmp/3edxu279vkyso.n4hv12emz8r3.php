@@ -12,6 +12,9 @@ document.write(
 var manifest = (manifest || []).concat([
 	{ src: root + '/resource/js/<?php echo $active; ?>.js' }
 ]);
+
+// API
+var api = 'http://10.10.50.45:8080/uplus-hongbao';
 </script>
 <script type="text/javascript" src="<?=host?>/library/one/require.js"></script>
 </body>

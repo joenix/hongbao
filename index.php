@@ -7,7 +7,7 @@ $project = '/hongbao';
 require_once('manifest.php');
 
 // Page Array
-$pages = array('index', 'excrete', 'result', 'history');
+$pages = array('index', 'excrete', 'excrete_in', 'excrete_un', 'excrete_has', 'history');
 
 
 // Web Init
@@ -45,14 +45,24 @@ class Web extends Init {
 		self::render( $u, 'index' );
 	}
 
-	// Page Demo
+	// Page Excrete
 	static function excrete( $u ){
 		self::render( $u, 'excrete' );
 	}
 
-	// Page Result
-	static function result( $u ){
-		self::render( $u, 'result' );
+	// Page Excrete In
+	static function excrete_in( $u ){
+		self::render( $u, 'excrete_in' );
+	}
+
+	// Page Excrete Un
+	static function excrete_un( $u ){
+		self::render( $u, 'excrete_un' );
+	}
+
+	// Page Excrete Has
+	static function excrete_has( $u ){
+		self::render( $u, 'excrete_has' );
 	}
 
 	// Page History

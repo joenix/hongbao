@@ -1213,7 +1213,7 @@ html {
 }
 @media (max-width: 640px) {
   html {
-    font-size: 75%;
+    font-size: 87.5%;
   }
 }
 body {
@@ -1269,6 +1269,9 @@ textarea {
 }
 button {
   vertical-align: top;
+}
+textarea {
+  resize: none;
 }
 /* Clearfix */
 .clearfix {
@@ -6258,8 +6261,8 @@ body {
   height: 100%;
 }
 body {
-  background: #580210 url(../../resource/img/background.png) center center no-repeat;
-  background-size: cover;
+  color: #fff;
+  background: #900000;
 }
 .container {
   max-width: 960px;
@@ -6270,6 +6273,348 @@ section {
   width: 100%;
   height: 100%;
 }
-section.index .board {
+section hr {
+  color: #ba0000;
+  border-left: 0;
+  border-right: 0;
+  border-top: 1px solid #800000;
+  border-bottom: 1px solid #ba0000;
+}
+section h1 {
+  text-align: center;
+  line-height: 2.25rem;
+  padding: 1rem 0;
+  font-size: 1.75rem;
+  color: #cd0000;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+section .box {
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-style: solid;
+  border-top-color: #800000;
+  border-left-color: #800000;
+  border-right-color: #ba0000;
+  border-bottom-color: #ba0000;
+  background: rgba(136, 0, 0, 0.25);
+}
+section .round {
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 25rem;
+  border: 1px solid #360000;
+  background: linear-gradient(#ba0000, #860000);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+}
+section .round:active,
+section .round:focus {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) inset;
+  background: linear-gradient(#640000, #860000);
+}
+section .control {
+  text-align: center;
+  overflow: hidden;
+  padding: 0.5rem 0;
+  border-radius: 0.25rem;
+  color: #ffffff;
+  border: 1px solid #ba0000;
+  background-image: url(../../resource/img/background.png);
+  background-position: center center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+section .control:after {
+  position: absolute;
+  padding: 0.5rem 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: ' ';
+  background: linear-gradient(rgba(127, 0, 0, 0.36), rgba(127, 0, 0, 0.48));
+}
+section .control:active,
+section .control:focus {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) inset;
+}
+section .control:active:after,
+section .control:focus:after {
+  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.12));
+}
+section .avatar {
+  display: block;
+  margin: 1rem auto;
+  border-radius: 25rem;
+}
+section .avatar img {
+  border: 3px solid #800000;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+section code {
+  display: block;
+  text-align: center;
+}
+section code i,
+section code strong {
+  font-size: 1.5rem;
+}
+section code span {
+  padding: 1rem 0;
+}
+section code * {
+  display: block;
+  font-size: 1rem;
+}
+section .board {
+  width: 100%;
   height: 100%;
+}
+section .board dl {
+  width: 280px;
+  margin: 0 auto;
+}
+section .board dl dt {
+  height: 30px;
+  background: url(../../resource/img/envelope.png) center center no-repeat;
+}
+section .board dl dd {
+  overflow-y: auto;
+  padding: 1rem;
+  border-width: 0 1px 1px;
+  border-style: solid;
+  border-color: #640000;
+  background: url(../../resource/img/background.png) center center no-repeat;
+  border-radius: 0 0 0.25rem 0.25rem;
+}
+section .board form {
+  padding-bottom: 1rem;
+}
+section .board li {
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-style: solid;
+  border-top-color: #800000;
+  border-left-color: #800000;
+  border-right-color: #ba0000;
+  border-bottom-color: #ba0000;
+  background: rgba(136, 0, 0, 0.25);
+  display: inline-table;
+  display: block;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.36) inset;
+}
+section .board li:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: ' ';
+  clear: both;
+  height: 0;
+}
+section .board li label,
+section .board li .input,
+section .board li bdo {
+  line-height: 1rem;
+  padding: 0.5rem 0;
+}
+section .board li label {
+  float: left;
+}
+section .board li > div {
+  margin-left: 4rem;
+}
+section .board li .input {
+  width: 100%;
+  line-height: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #800000;
+  background: rgba(136, 0, 0, 0.5);
+  box-shadow: 0 0 1px #ba0000;
+}
+section .board li input,
+section .board li textarea {
+  padding: 0.5rem 0;
+  width: 100%;
+  line-height: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #800000;
+  background: rgba(136, 0, 0, 0.5);
+  box-shadow: 0 0 1px #ba0000;
+}
+section .board li textarea:focus {
+  height: 6rem;
+}
+section .board li bdo {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.64);
+}
+section .board li bdo.active {
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-style: solid;
+  border-top-color: #800000;
+  border-left-color: #800000;
+  border-right-color: #ba0000;
+  border-bottom-color: #ba0000;
+  background: rgba(136, 0, 0, 0.25);
+  border: 1px solid #800000;
+  color: #ffffff;
+}
+section .board .link_exc {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+}
+section .excel {
+  width: 100%;
+  height: 100%;
+  background: url(../../resource/img/background.png) center center no-repeat;
+}
+section .excel dt {
+  display: inline-table;
+  display: block;
+  border-bottom: 1px solid #640000;
+}
+section .excel dt:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: ' ';
+  clear: both;
+  height: 0;
+}
+section .excel dt span {
+  float: left;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  padding: 0.5rem 0;
+  color: #aaa;
+  background: rgba(180, 0, 0, 0.25);
+}
+section .excel dt span:first-child {
+  border-right: 1px solid #640000;
+}
+section .excel dt span:active,
+section .excel dt span:focus,
+section .excel dt span:hover,
+section .excel dt span.active {
+  color: #ffffff;
+  background: linear-gradient(rgba(180, 0, 0, 0.36), rgba(180, 0, 0, 0.64));
+}
+section .excel dd table {
+  width: 100%;
+  margin: 1rem 0;
+}
+section .excel dd table th {
+  font-weight: normal;
+}
+section .excel dd table td {
+  text-align: center;
+}
+section .excel dd table span {
+  cursor: pointer;
+}
+section.index dd button {
+  text-align: center;
+  overflow: hidden;
+  padding: 0.5rem 0;
+  border-radius: 0.25rem;
+  color: #ffffff;
+  border: 1px solid #ba0000;
+  background-image: url(../../resource/img/background.png);
+  background-position: center center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  position: relative;
+  width: 100%;
+}
+section.index dd button:after {
+  position: absolute;
+  padding: 0.5rem 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: ' ';
+  background: linear-gradient(rgba(127, 0, 0, 0.36), rgba(127, 0, 0, 0.48));
+}
+section.index dd button:active,
+section.index dd button:focus {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) inset;
+}
+section.index dd button:active:after,
+section.index dd button:focus:after {
+  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.12));
+}
+section.index dd button:after {
+  content: '发送';
+}
+section.excrete dd img {
+  width: 10rem;
+  height: 10rem;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 25rem;
+}
+section.excrete dd img img {
+  border: 3px solid #800000;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+section.excrete dd p {
+  padding: 1rem 0;
+  text-indent: 2rem;
+}
+section.excrete dd button {
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 25rem;
+  border: 1px solid #360000;
+  background: linear-gradient(#ba0000, #860000);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+  display: block;
+  margin: 0 auto;
+  width: 7rem;
+  height: 7rem;
+  font-size: 3rem;
+}
+section.excrete dd button:active,
+section.excrete dd button:focus {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) inset;
+  background: linear-gradient(#640000, #860000);
+}
+section.excrete dd a {
+  text-align: center;
+  overflow: hidden;
+  padding: 0.5rem 0;
+  border-radius: 0.25rem;
+  color: #ffffff;
+  border: 1px solid #ba0000;
+  background-image: url(../../resource/img/background.png);
+  background-position: center center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  position: relative;
+  display: block;
+  width: 100%;
+}
+section.excrete dd a:after {
+  position: absolute;
+  padding: 0.5rem 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: ' ';
+  background: linear-gradient(rgba(127, 0, 0, 0.36), rgba(127, 0, 0, 0.48));
+}
+section.excrete dd a:active,
+section.excrete dd a:focus {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) inset;
+}
+section.excrete dd a:active:after,
+section.excrete dd a:focus:after {
+  background: linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.12));
 }

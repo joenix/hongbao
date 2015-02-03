@@ -5,8 +5,8 @@ html, body{
 	height: 100%;
 }
 body{
-	background: #580210 url(../../resource/img/background.png) center center no-repeat;
-	background-size: cover;
+	color: #fff;
+	background: #900000;
 }
 
 .container{
@@ -29,10 +29,295 @@ section{
 	.relative;
 	width: 100%; height: 100%;
 
+	hr{
+		color: #ba0000;
+		border-left: 0;
+		border-right: 0;
+		border-top: 1px solid #800000;
+		border-bottom: 1px solid #ba0000;
+	}
+
+	h1{
+		.text-center;
+		line-height: @size * 2.25;
+		padding: @size 0;
+		font-size: @size * 1.75;
+		color: #cd0000;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+	}
+
+	.box{
+		border-radius: @radius;
+		border-width: 1px;
+		border-style: solid;
+		border-top-color: #800000;
+		border-left-color: #800000;
+		border-right-color: #ba0000;
+		border-bottom-color: #ba0000;
+		background: rgba(136, 0, 0, .25);
+	}
+
+	.round{
+		text-shadow: -1px -1px 1px rgba(0, 0, 0, .5);
+		border-radius: @radius * 100;
+		border: 1px solid #360000;
+		background: linear-gradient( #ba0000, #860000 );
+		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+
+		&:active, &:focus{
+			box-shadow: 0 1px 2px rgba(0, 0, 0, .5) inset;
+			background: linear-gradient( #640000, #860000 );
+		}
+	}
+
+	.control{
+
+		.text-center;
+		.over-hide;
+
+		padding: @size * 1/2 0;
+		border-radius: @radius;
+		color: @white;
+		border: 1px solid #ba0000;
+		background-image: url(../../resource/img/background.png);
+		background-position: center center;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+
+		&:after{
+			.absolute;
+
+			padding: @size * 1/2 0;
+			top: 0; left: 0; right: 0; bottom: 0;
+			content: ' ';
+			background: linear-gradient( rgba(127, 0, 0, .36), rgba(127, 0, 0, .48) );
+		}
+
+		&:active, &:focus{
+			box-shadow: 0 1px 2px rgba(0, 0, 0, .5) inset;
+
+			&:after{
+				background: linear-gradient( rgba(0, 0, 0, .24), rgba(0, 0, 0, .12) );
+			}
+		}
+	}
+
+	.avatar{
+		.block;
+		margin: @size auto;
+		border-radius: @radius * 100;
+
+		img{
+			border: 3px solid #800000;
+			box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+		}
+	}
+
+	code{
+		.block;
+		.text-center;
+
+		i, strong{
+			font-size: @size * 1.5;
+		}
+		span{
+			padding: @size 0;
+		}
+
+		*{
+			.block;
+			font-size: @size;
+		}
+	}
+
+	.board{
+
+		width: 100%; height: 100%;
+
+		dl{
+			width: 280px;
+			margin: 0 auto;
+
+			dt{
+				height: 30px;
+				background: url(../../resource/img/envelope.png) center center no-repeat;
+			}
+			dd{
+				.scroll-y;
+				padding: @size;
+				border-width: 0 1px 1px;
+				border-style: solid;
+				border-color: #640000;
+				background: url(../../resource/img/background.png) center center no-repeat;
+				border-radius: 0 0 @radius @radius;
+			}
+		}
+
+		form{
+			padding-bottom: @size;
+		}
+
+		li{
+			.box;
+			.clearfix;
+			margin-bottom: @size;
+			padding: @size;
+			box-shadow: 0 0 2px rgba(0, 0, 0, .36) inset;
+
+			label, .input, bdo{
+				line-height: @size;
+				padding: @size * 1/2 0;
+			}
+
+			label{
+				.left;
+			}
+
+			& > div{
+				margin-left: @size * 4;
+			}
+
+			.input{
+				width: 100%;
+				line-height: @size;
+				padding: @size * 1/2;
+				border-radius: @radius;
+				border: 1px solid #800000;
+				background: rgba(136, 0, 0, .5);
+				box-shadow: 0 0 1px #ba0000;
+			}
+
+			input, textarea{
+				.input;
+			}
+
+			textarea{
+				&:focus{
+					height: @size * 6;
+				}
+			}
+
+			bdo{
+				.hand;
+				.in-block;
+				padding: @size * 1/2 @size;
+				color: rgba(255, 255, 255, .64);
+
+				&.active{
+					.box;
+					border: 1px solid #800000;
+					color: @white;
+				}
+			}
+		}
+
+		.link_exc{
+
+			.absolute;
+
+			right: 0; bottom: 0;
+			padding: @size * 1/2 @size;
+			color: @white;
+
+		}
+	}
+
+	.excel{
+		width: 100%; height: 100%;
+		background: url(../../resource/img/background.png) center center no-repeat;
+
+		dt{
+			.clearfix;
+
+			border-bottom: 1px solid #640000;
+
+			span{
+				.left;
+				.text-center;
+				.hand;
+
+				width: 50%;
+				padding: @size * 1/2 0;
+				color: #aaa;
+				background: rgba(180, 0, 0, .25);
+
+				&:first-child{
+					border-right: 1px solid #640000;
+				}
+
+				&:active, &:focus, &:hover, &.active{
+					color: @white;
+					background: linear-gradient( rgba(180, 0, 0, .36), rgba(180, 0, 0, .64) );
+				}
+			}
+		}
+
+		dd{
+			table{
+				width: 100%;
+				margin: @size 0;
+
+				th{
+					.normal;
+				}
+				td{
+					.text-center;
+				}
+
+				span{
+					.hand;
+				}
+			}
+		}
+	}
+
 	&.index{
 
-		.board{
-			height: 100%; height: 100%;
+		dd{
+
+			button{
+				.control;
+				.relative;
+				width: 100%;
+
+				&:after{
+					content: '发送';
+				}
+			}
+
+		}
+	}
+
+	&.excrete{
+
+		dd{
+
+			img{
+				width: @size * 10; height: @size * 10;
+				.avatar;
+			}
+
+			p{
+				padding: @size 0;
+				text-indent: @size * 2;
+			}
+
+			button{
+				.round;
+				.block;
+
+				margin: 0 auto;
+				width: @size * 7; height: @size * 7;
+				font-size: @size * 3;
+			}
+
+			a{
+				.control;
+				.relative;
+				.block;
+
+				width: 100%;
+			}
+
 		}
 
 	}

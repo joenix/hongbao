@@ -15,6 +15,7 @@
 - 金额(U币)：coin = 100,000 to 10,000,000
 - 祝福语：say = 800
 - 发送到：to = show | hall
+- 跳转：jump = '/hongbao/excrete.html?envid={{envid}}'
 
 #### 返回结果：
 - 错误状态：error = [boolean]
@@ -42,6 +43,7 @@
 #### 类型：GET
 #### 提交参数：
 - 用户id：userid
+- 类型：type = 0: 全部, 1: 我发起的, 2: 我拆过的
 
 #### 返回结果：
 - 错误状态：error = [boolean]
@@ -52,7 +54,8 @@ data = [
     {
         envid(红包id): [int],
         data(日期): [data],
-        coin(U币): [int]
+        coin(U币): [int],
+        type(类型): 0: 我发起的, 1: 我参与的
     }
 ]
 ```

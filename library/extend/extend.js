@@ -358,6 +358,17 @@ $.extend({
 		return ele.html( ejs.render( (ele.data(name, text), text), data ) );
 	},
 
+	// 自适应
+	adaptive: function( callback ){
+
+		$.dom.window
+			.on('resize', function(){
+				callback( $.dom.window.width(), $.dom.window.height() );
+			})
+			.trigger('resize');
+
+	},
+
 	// 计时器
 	timeout: function( options ){
 
@@ -663,7 +674,7 @@ $.extend({
 
 	// 切换
 	tab: function( options ){
-		options = options || {};
+		options = options || {}, options.callback = options.callback || $.noop;
 
 		$( options.container || $.dom.document ).each(function(i, container){
 
@@ -685,9 +696,17 @@ $.extend({
 		  ,	option.def       = options.def    || true;
 
 			option.menus.on( $.evt.click, function(){
-				option.index = option.menus.index( this ),
-				option.menus.removeClass( option.active ).eq( option.index ).addClass( option.active ),
-				option.contents.hide().eq( option.index ).show();
+				!function( index ){
+					option.menus
+							.removeClass( option.active )
+							.eq( index )
+							.addClass( option.active ),
+					option.contents
+							.hide()
+							.eq( index )
+							.show(),
+					options.callback( option );
+				}( ( option.it = $(this), option.index = option.menus.index( this ) ) );
 			});
 
 			if( option.def ){
@@ -728,6 +747,71 @@ $.extend({
 
 		}();
 
+	},
+
+	// Request Http
+	http: function( options ){
+		options = options || {}
+
+		// 表单
+	  ,	options.forms   = $( options.forms || 'form' )
+		// 规则
+	  ,	options.rule    = options.rule || 'name'
+		// 参数
+	  ,	options.params  = options.param || {}
+		// 回调
+	  ,	options.success = options.callback || $.noop
+		// 初始化
+	  ,	options.init    = function( callback ){
+
+			$.each( options.forms, function(i, form){
+				callback( $(form) );
+			});
+
+		}(function( form ){
+
+			var option = {
+					api: _.api || $.root,
+					action: form.attr('action'),
+					method: form.attr('method') || 'get',
+					params: options.params || {},
+					dataType: options.dataType || 'json'
+				};
+
+			form.on('submit', function(){
+
+				// 获取Form自带参数
+				$.each( form.find('[name]'), function(i, one){
+					option.params[ one.name ] = one.value;
+				});
+
+				// 获取Data参数
+				$.each( form.find('[data-' + options.rule + ']'), function(i, one){
+
+					!function( attr ){
+
+						option.params[ attr[ options.rule ] ] = attr.value;
+
+					}( $.dataget( one ) );
+
+				});
+
+				// 转化Ajax
+				$.ajax({
+					url: option.api + option.action,
+					type: option.method,
+					data: option.dataType == 'jsonp' ? JSON.stringify( option.params ) : option.params,
+					dataType: option.dataType,
+					success: options.success,
+					error: function( e ){
+						console.log( e );
+					}
+				});
+
+				return false;
+			});
+
+		});
 	},
 
 	// 结果
