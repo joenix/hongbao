@@ -25,3 +25,5 @@
     </div>
 
 </section>
+
+<form method="post" action="/env/detail" id="init"></form>

@@ -6442,7 +6442,11 @@ section .board li textarea {
   background: rgba(136, 0, 0, 0.5);
   box-shadow: 0 0 1px #ba0000;
 }
+section .board li textarea {
+  overflow: hidden;
+}
 section .board li textarea:focus {
+  overflow-y: auto;
   height: 6rem;
 }
 section .board li bdo {

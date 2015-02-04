@@ -760,6 +760,8 @@ $.extend({
 	  ,	options.forms   = $( options.forms || 'form' )
 		// 规则
 	  ,	options.rule    = options.rule || 'name'
+		// 默认执行
+	  ,	options.trigger = $.isBoolean( options.trigger ) ? options.trigger : false
 		// 参数
 	  ,	options.params  = options.param || {}
 		// 发送
@@ -854,6 +856,10 @@ $.extend({
 			form.on('submit', function(){
 				return options.ready() ? options.exc( form ) : false;
 			});
+			
+			if( options.trigger ){
+				form.trigger('submit');
+			}
 
 		});
 	},
