@@ -38,6 +38,9 @@ $.extend({
 
 	}( $.loc.search.toLowerCase().substr(1) ),
 
+	// 网页标题
+	title: _.document.title,
+
 	// 事件集
 	evt: function( evts ){
 		var json = {};
@@ -759,8 +762,86 @@ $.extend({
 	  ,	options.rule    = options.rule || 'name'
 		// 参数
 	  ,	options.params  = options.param || {}
+		// 发送
+	  ,	options.ready   = options.ready || function(){ return true }
+		// 同步/异步
+	  ,	options.async   = $.isBoolean(options.async) ? options.async : false
 		// 回调
 	  ,	options.success = options.callback || $.noop
+		// 执行
+	  ,	options.exc     = function( form ){
+
+			var option = {
+				api: _.api || $.root,
+				action: form.attr('action'),
+				method: form.attr('method') || 'get',
+				params: options.params,
+				dataType: options.dataType || 'json'
+			};
+
+			// 获取Form自带参数
+			$.each( form.find('[name]'), function(i, one){
+
+				!function( value ){
+					if( value ){
+						option.params[ one.name ] = value;
+					}
+				}( one.value );
+
+			});
+
+			// 获取Data参数
+			$.each( form.find('[data-' + options.rule + ']'), function(i, one){
+
+				!function( attr, value ){
+
+					if( (value = attr.value) ){
+						option.params[ attr[ options.rule ] ] = value;
+					}
+
+				}( $.dataget( one ) );
+
+			});
+
+			// Add Token
+			option.params.token = $.param.token || 0;
+
+			// JsonP处理
+			if( option.dataType == 'jsonp' ){
+
+				option.params = function( params ){
+
+					var result = '';
+
+					$.each( params, function(i, param){
+						result += '&' + i + '=' + param;
+					});
+
+					return result.substr(1);
+
+				}( option.params );
+			}
+
+			// 转化Ajax
+			$.ajax({
+				url: option.api + option.action,
+				type: option.method,
+				data: option.params,
+				dataType: option.dataType,
+				jsonp: 'callback',
+				async: options.async,
+				success: function( result ){
+					options.success( result, option );
+				},
+				error: function( e ){
+					console.log( e );
+					console.log( option );
+				}
+			});
+
+			return false;
+
+		}
 		// 初始化
 	  ,	options.init    = function( callback ){
 
@@ -770,48 +851,50 @@ $.extend({
 
 		}(function( form ){
 
-			var option = {
-					api: _.api || $.root,
-					action: form.attr('action'),
-					method: form.attr('method') || 'get',
-					params: options.params || {},
-					dataType: options.dataType || 'json'
-				};
-
 			form.on('submit', function(){
-
-				// 获取Form自带参数
-				$.each( form.find('[name]'), function(i, one){
-					option.params[ one.name ] = one.value;
-				});
-
-				// 获取Data参数
-				$.each( form.find('[data-' + options.rule + ']'), function(i, one){
-
-					!function( attr ){
-
-						option.params[ attr[ options.rule ] ] = attr.value;
-
-					}( $.dataget( one ) );
-
-				});
-
-				// 转化Ajax
-				$.ajax({
-					url: option.api + option.action,
-					type: option.method,
-					data: option.dataType == 'jsonp' ? JSON.stringify( option.params ) : option.params,
-					dataType: option.dataType,
-					success: options.success,
-					error: function( e ){
-						console.log( e );
-					}
-				});
-
-				return false;
+				return options.ready() ? options.exc( form ) : false;
 			});
 
 		});
+	},
+
+	// 分享
+	share: function( options ){
+
+		options = options || {}
+	  ,	options.title = options.title || $.title || ''
+	  ,	options.description = options.description || ''
+	  ,	options.image = options.image || ''
+	  ,	options.url = options.url || ''
+	  ,	options.uid = options.uid || ''
+
+	  ,	options.appid = options.appid || 'wxc81bc3d270e46d21'
+	  ,	options.width = options.width || 120
+	  ,	options.height = options.height || 120
+
+	  ,	options.callback = options.callback || $.noop;
+
+		if( !options.type ){
+			console.log('unknow share type');
+			return;
+		}
+
+		switch( options.type ){
+			case 'youja':
+
+				options.link = ''
+							 + './?yjJumpClientPage=share'
+							 + '&uid=' + options.uid
+							 + '&shareTitle=' + options.title
+							 + '&shareImageUrl=' + options.image
+							 + '&shareDesc=' + options.description
+							 + '&shareUrl=' + options.url;
+
+				break;
+		}
+
+		options.callback( options );
+
 	},
 
 	// 结果

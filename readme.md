@@ -29,6 +29,7 @@
 #### 类型：POST
 #### 提交参数：
 - 红包id：envid
+- 动作action: do
 
 #### 返回结果：
 - 错误状态：error = [boolean]

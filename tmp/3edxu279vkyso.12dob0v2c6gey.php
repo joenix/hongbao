@@ -13,20 +13,20 @@
 							<label>份额：</label>
 							<div>
 								<div>
-									<input type="text" name="lot" placeholder="输入发送份额" />
+									<input type="text" name="lot" placeholder="5-20份" />
 								</div>
 							</div>
 						</li>
 						<li>
 							<label>金额：</label>
 							<div>
-								<input type="text" name="coin" placeholder="输入发送多少金额" />
+								<input type="text" name="coin" placeholder="U币:100,000-10,000,000" />
 							</div>
 						</li>
 						<li>
 							<label>祝福：</label>
 							<div>
-								<textarea rows="1" name="say" placeholder="输入祝福语"></textarea>
+								<textarea rows="1" name="say" placeholder="800字以内"></textarea>
 							</div>
 						</li>
 						<li>

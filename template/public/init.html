@@ -15,6 +15,9 @@ var manifest = (manifest || []).concat([
 
 // API
 var api = 'http://10.10.50.45:8080/uplus-hongbao';
+
+// Active ID
+var active = 312272592;
 </script>
 <script type="text/javascript" src="<?=host?>/library/one/require.js"></script>
 </body>
